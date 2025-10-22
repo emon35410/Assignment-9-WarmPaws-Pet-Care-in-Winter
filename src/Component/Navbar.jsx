@@ -1,12 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router';
+import logo from "../assets/Logo shop.png"
 
 
 const Navbar = () => {
     const links = <>
-     <li><NavLink>Home</NavLink></li>
-     <li><NavLink>Services</NavLink></li>
-     <li><NavLink>My Profile</NavLink></li>
+        <li><NavLink to="/">Home</NavLink></li>
+        <li><NavLink to="/services">Services</NavLink></li>
+        <li><NavLink to="/profile">My Profile</NavLink></li>
     </>
     return (
         <nav>
@@ -20,15 +21,21 @@ const Navbar = () => {
                             tabIndex="-1"
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                             {links}
-        
+
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">WarmPaws – Pet Care</a>
+                    <div className='h-10 w-30'>
+                        <a href="/" className="btn btn-ghost p-0">
+                        <img className=" w- object-contain" src={logo} alt="WarmPaws Logo" />
+                    </a>
+                    </div>
+                    
+
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         {links}
-                        
+
                     </ul>
                 </div>
                 <div className="navbar-end">
