@@ -1,0 +1,122 @@
+[
+  {
+    "serviceId": 1,
+    "serviceName": "Winter Coat Fitting for Dogs",
+    "providerName": "PawCare Studio",
+    "providerEmail": "info@pawcare.com",
+    "price": 25,
+    "rating": 4.9,
+    "slotsAvailable": 4,
+    "description": "Custom coat fitting and warm outfit options to keep your dog comfortable in the cold.",
+    "image": "https://i.ibb.co.com/3L1cS9G/DJANGO-s-Whistler-Winter-Dog-Coat-is-a-very-warm.jpg",
+    "category": "Clothing"
+  },
+  {
+    "serviceId": 2,
+    "serviceName": "Winter Grooming & Paw Treatment",
+    "providerName": "CozyPets Grooming",
+    "providerEmail": "hello@cozypets.com",
+    "price": 30,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Professional grooming with moisturizing paw balm and winter-safe shampoo.",
+    "image": "https://i.ibb.co.com/p6m93KsL/Enticing-Self-Grooming-Fun-for-Your-Feline-Looking.jpg",
+    "category": "Grooming"
+  },
+  {
+    "serviceId": 3,
+    "serviceName": "Pet Heated Blanket Rental",
+    "providerName": "WarmPaws Comfort",
+    "providerEmail": "support@warmpaws.com",
+    "price": 15,
+    "rating": 4.7,
+    "slotsAvailable": 10,
+    "description": "Rent cozy heated blankets to keep your pets warm indoors during cold winter nights.",
+    "image": "https://i.ibb.co.com/fYHHsv7r/Specification-Kiroto-Outdoor-pet-heating-pad.jpg",
+    "category": "Accessories"
+  },
+  {
+    "serviceId": 4,
+    "serviceName": "Winter Nutrition Plan for Pets",
+    "providerName": "Healthy Paws Nutrition",
+    "providerEmail": "contact@healthypaws.com",
+    "price": 40,
+    "rating": 4.9,
+    "slotsAvailable": 5,
+    "description": "Tailored nutrition plans to maintain your pet's energy and immunity during winter months.",
+    "image": "https://i.ibb.co.com/FkJFXWcK/Do-You-Have-a-Winter-Disaster-Plan-for-your-pet.jpg",
+    "category": "Nutrition"
+  },
+  {
+    "serviceId": 5,
+    "serviceName": "Anti-Slip Paw Wax Application",
+    "providerName": "PawSafe Clinic",
+    "providerEmail": "info@pawsafe.com",
+    "price": 20,
+    "rating": 4.8,
+    "slotsAvailable": 6,
+    "description": "Protect your pet’s paws from icy surfaces with our anti-slip paw wax treatment.",
+    "image": "https://i.ibb.co.com/tTqXSj7J/Pr-sentation-de-la-cire-de-patte-de-carmel-la.jpg",
+    "category": "Grooming"
+  },
+  {
+    "serviceId": 6,
+    "serviceName": "Indoor Play & Winter Exercise",
+    "providerName": "PetActive Center",
+    "providerEmail": "hello@petactive.com",
+    "price": 35,
+    "rating": 4.9,
+    "slotsAvailable": 8,
+    "description": "Safe indoor exercise sessions to keep your pets active and healthy during the cold season.",
+    "image": "https://i.ibb.co.com/GQ0SH62H/5-Fun-Indoor-Activities-For-Dogs-Who-Can-t-Stand-the-Cold-and-Snow.jpg",
+    "category": "Activity"
+  },
+  {
+    "serviceId": 7,
+    "serviceName": "Warm Bed & Blanket Package",
+    "providerName": "SnuggleTails",
+    "providerEmail": "care@snuggletails.com",
+    "price": 28,
+    "rating": 4.7,
+    "slotsAvailable": 7,
+    "description": "Provide your pets with extra comfort through our warm bed and fleece blanket combo package.",
+    "image": "https://i.ibb.co.com/Wp3M1z3x/Printed-Pet-Blanket-Winter-Warm-Cover-Suitable-For.jpg",
+    "category": "Comfort"
+  },
+  {
+    "serviceId": 8,
+    "serviceName": "Winter Health Checkup for Pets",
+    "providerName": "PawCare Vet Clinic",
+    "providerEmail": "vet@pawcare.com",
+    "price": 45,
+    "rating": 5.0,
+    "slotsAvailable": 5,
+    "description": "Comprehensive health checkup focusing on skin, coat, and immunity during cold weather.",
+    "image": "https://i.ibb.co.com/G392cfL2/Stay-prepared-with-our-winter-care-tips-and.jpg",
+    "category": "Health"
+  },
+  {
+    "serviceId": 9,
+    "serviceName": "Pet Winter Photography Session",
+    "providerName": "FurFrame Studio",
+    "providerEmail": "studio@furframe.com",
+    "price": 50,
+    "rating": 4.9,
+    "slotsAvailable": 3,
+    "description": "Capture your pet’s cozy winter moments with a professional photography session.",
+    "image": "https://i.ibb.co.com/QBs9McQ/421c3fc0-17c6-4fb2-b998-893e1b858221.jpg",
+    "category": "Photography"
+  },
+  {
+    "serviceId": 10,
+    "serviceName": "Winter Massage & Relaxation Therapy",
+    "providerName": "CozyPet Spa",
+    "providerEmail": "spa@cozypet.com",
+    "price": 38,
+    "rating": 4.8,
+    "slotsAvailable": 6,
+    "description": "Gentle massage and aromatherapy session designed to relax and warm your pets during winter.",
+    "image": "https://i.ibb.co.com/wZSCDJQP/Canine-Massage-for-remedial-soft-tissue-injury.jpg",
+    "category": "Wellness"
+  }
+]
