@@ -4,6 +4,10 @@ import Home from "../../Component/Home";
 import ErrorPage from "../../Component/ErrorPage";
 import Service from "../../Component/Service";
 import ServiceDetails from "../../Component/ServiceDetails";
+import Login from "../../Pages/Login";
+import Register from "../../Pages/Register";
+import Authlayout from "../Authlayout/Authlayout";
+import Myprofile from "../../Component/Myprofile";
 
 
 const router = createBrowserRouter([
@@ -16,7 +20,7 @@ const router = createBrowserRouter([
         index: true,
         Component: Home,
         loader: () => fetch("/petservice.json"),
-        
+
       },
       {
         path: "/services/:id",
@@ -29,11 +33,8 @@ const router = createBrowserRouter([
             throw new Response("Not Found", { status: 404 });
           }
           return service;
-        },
-        
-        
-        
-      }
+        }
+      },
     ]
   },
 
@@ -42,6 +43,25 @@ const router = createBrowserRouter([
     Component: Service,
     loader: () => fetch("/service.json")
   },
+  {
+    path:"/profile",
+    element: <Myprofile></Myprofile>
+  },
+  {
+    path: "/auth",
+    element: <Authlayout></Authlayout>,
+    children: [
+      {
+        path: "/auth/login",
+        element: <Login></Login>
+      },
+      {
+        path: "/auth/register",
+        element: <Register></Register>
+      }
+
+    ]
+  }
 
 ]);
 

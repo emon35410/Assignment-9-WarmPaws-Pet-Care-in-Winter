@@ -1,16 +1,17 @@
 import React from 'react';
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
 import logo from "../assets/Logo shop.png"
+import "./button.css"
 
 
 const Navbar = () => {
     const links = <>
-        <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/services">Services</NavLink></li>
-        <li><NavLink to="/profile">My Profile</NavLink></li>
+        <li><NavLink className="font-semibold" to="/">Home</NavLink></li>
+        <li><NavLink className="font-semibold" to="/services">Services</NavLink></li>
+        <li><NavLink className="font-semibold" to="/profile">My Profile</NavLink></li>
     </>
     return (
-        <nav>
+        <nav className=''>
             <div className="navbar bg-base-100 shadow-sm">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -24,12 +25,12 @@ const Navbar = () => {
 
                         </ul>
                     </div>
-                    <div className='h-10 w-30'>
-                        <a href="/" className="btn btn-ghost p-0">
-                        <img className=" w- object-contain" src={logo} alt="WarmPaws Logo" />
-                    </a>
+                    <div className='w-24 '>
+                        <Link to="/">
+                            <img className="rounded-full " src={logo} alt="WarmPaws Logo" />
+                        </Link>
                     </div>
-                    
+
 
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -39,7 +40,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Login</a>
+                    <Link to="/auth/login" className="btn">Login</Link>
                 </div>
             </div>
         </nav>

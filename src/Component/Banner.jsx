@@ -3,13 +3,12 @@ import BannerImg from "../assets/Frame 2.png";
 
 const Banner = () => {
     return (
-        <div>
+        <div className='w-11/12 mx-auto'>
             <div
                 className="hero min-h-screen bg-cover bg-center relative"
                 style={{
                     backgroundImage: `url(${BannerImg})`,
-                }}
-            >
+                }}>
                 {/* Overlay for better text readability */}
                 <div className="hero-overlay bg-opacity-40"></div>
 
