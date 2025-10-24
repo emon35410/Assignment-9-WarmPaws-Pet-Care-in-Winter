@@ -39,7 +39,7 @@ const Home = () => {
                     {services.map((service) => (
                         <div key={service.serviceId} className="card bg-base-100 shadow-lg">
                             <figure>
-                                <img className='w-full object-cover md:h-80'
+                                <img className='w-full object-cover md:h-90'
                                     src={service.image}
                                     alt={service.serviceName}
                                 />

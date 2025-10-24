@@ -8,6 +8,7 @@ import Login from "../../Pages/Login";
 import Register from "../../Pages/Register";
 import Authlayout from "../Authlayout/Authlayout";
 import Myprofile from "../../Component/Myprofile";
+import PrivateRoute from "../Provider/PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -17,25 +18,28 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
-        index: true,
+        index: "/",
         Component: Home,
         loader: () => fetch("/petservice.json"),
 
       },
-      {
-        path: "/services/:id",
-        Component: ServiceDetails,
-        loader: async ({ params }) => {
-          const res = await fetch("/service.json");
-          const data = await res.json();
-          const service = data.find(item => item.serviceId === parseInt(params.id));
-          if (!service) {
-            throw new Response("Not Found", { status: 404 });
-          }
-          return service;
-        }
-      },
+
     ]
+  },
+  {
+    path: "/services/:id",
+    element: <PrivateRoute>
+      <ServiceDetails></ServiceDetails>
+    </PrivateRoute>,
+    loader: async ({ params }) => {
+      const res = await fetch("/service.json");
+      const data = await res.json();
+      const service = data.find(item => item.serviceId === parseInt(params.id));
+      if (!service) {
+        throw new Response("Not Found", { status: 404 });
+      }
+      return service;
+    }
   },
 
   {
@@ -44,7 +48,7 @@ const router = createBrowserRouter([
     loader: () => fetch("/service.json")
   },
   {
-    path:"/profile",
+    path: "/profile",
     element: <Myprofile></Myprofile>
   },
   {

@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link } from 'react-router';
+import { AuthConntext } from '../layout/Provider/AuthProvider';
 
 const Login = () => {
-    const handleSubmit = (e)=>{
+    const { login } = use(AuthConntext)
+    const handleSubmit = (e) => {
         e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        login(email,password)
+            .then((result) => {
+                const user = result.user;
+                console.log(user)
+            
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                alert(errorMessage)
+            });
 
-        console.log("my jafrin")
     }
     return (
         <div className='flex justify-center items-center md:min-h-screen'>
@@ -22,7 +35,7 @@ const Login = () => {
                             <input required name='password' type="password" className="input" placeholder="Password" />
                             <div><a className="link link-hover">Forgot password?</a></div>
                             {
-                                  <p className='text-red-600'>{}</p>
+                                <p className='text-red-600'>{ }</p>
                             }
                             <button type='submit' className="btn btn-neutral mt-4">Login</button>
                             <p className='text-[#706F6F] text-center mt-2 font-semibold'>Dont’t Have An Account ?<Link to="/auth/register" className='text-[#F75B5F]'>Register</Link></p>

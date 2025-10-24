@@ -12,7 +12,7 @@ const Service = () => {
         return (
             <div className="flex justify-center items-center h-screen">
                 <CircularText
-                    text="INTERSTELLAR*COMPONENTS*"
+                    text="INTERSTELLAR*"
                     spinDuration={20}
                     className="text-xl text-primary"
                 />
