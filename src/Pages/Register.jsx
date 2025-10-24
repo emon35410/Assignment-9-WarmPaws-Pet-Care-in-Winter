@@ -4,7 +4,7 @@ import { AuthConntext } from '../layout/Provider/AuthProvider';
 
 const Register = () => {
     const [nameEror, setNameError] = useState("")
-    const { createUser, SetUser } = use(AuthConntext)
+    const { createUser, SetUser, updateUser } = use(AuthConntext)
     const handleRegister = (e) => {
         e.preventDefault();
         console.log(e.target)
@@ -23,14 +23,20 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 const user = result.user;
-
-                SetUser(user)
+                updateUser({ displayName: name, photoURL: photo })
+                    .then(() => {
+                        SetUser({...user,displayName: name, photoURL: photo})
+                    })
+                    .catch((error) => {
+                        console.log(error)
+                        SetUser(user)
+                    });
                 console.log(user)
             })
             .catch((error) => {
                 const errorMessage = error.message;
                 alert(errorMessage)
-                // ..
+
             });
 
     }

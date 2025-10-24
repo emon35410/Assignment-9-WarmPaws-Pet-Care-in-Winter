@@ -9,6 +9,7 @@ import Register from "../../Pages/Register";
 import Authlayout from "../Authlayout/Authlayout";
 import Myprofile from "../../Component/Myprofile";
 import PrivateRoute from "../Provider/PrivateRoute";
+import CircularText from "../../Component/CircularText ";
 
 
 const router = createBrowserRouter([
@@ -21,6 +22,15 @@ const router = createBrowserRouter([
         index: "/",
         Component: Home,
         loader: () => fetch("/petservice.json"),
+        hydrateFallbackElemen: <div className='flex justify-center items-center h-screen'>
+          <CircularText
+            text="INTERSTELLAR*"
+            spinDuration={20}
+            className="text-xl text-primary"
+          />
+        </div>
+
+
 
       },
 
@@ -39,7 +49,14 @@ const router = createBrowserRouter([
         throw new Response("Not Found", { status: 404 });
       }
       return service;
-    }
+    },
+    hydrateFallbackElement: <div className='flex justify-center items-center h-screen'>
+      <CircularText
+        text="INTERSTELLAR*"
+        spinDuration={20}
+        className="text-xl text-primary"
+      />
+    </div>
   },
 
   {

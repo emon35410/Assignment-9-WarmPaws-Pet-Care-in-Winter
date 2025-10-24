@@ -25,11 +25,6 @@ const Navbar = () => {
     </>
     return (
         <nav className=''>
-            <div>
-                {
-                    user && user.email
-                }
-            </div>
             <div className="navbar bg-base-100 shadow-sm">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -58,7 +53,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <img className='mr-2' src={userImg} alt="" />
+                    <img className='mr-2 w-15 h-10 rounded-full' src={`${user?user.photoURL:userImg}`} alt="" />
                     {
                         user ? <Link to="/auth/login" onClick={handleLogout} className="btn">Logout</Link> : <Link to="/auth/login" className="btn">Login</Link>
                     }
