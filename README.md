@@ -1,16 +1,31 @@
-# React + Vite
+Warmpaws Pet Care
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Warmpaws Pet Care is a modern and responsive web application dedicated to providing comprehensive pet care services. Designed with both pet owners and service providers in mind, the platform helps users easily find and book services, get expert advice, and learn tips to maintain their pets’ health and well-being.
 
-Currently, two official plugins are available:
+Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Service Listings: Browse popular pet care services with detailed information, ratings, and pricing.
 
-## React Compiler
+Expert Vets: Meet certified veterinarians and specialists for different types of pets.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Winter Care Tips: Get seasonal tips to ensure pets stay safe and healthy.
 
-## Expanding the ESLint configuration
+Interactive Animations: Smooth, engaging animations for an enhanced user experience.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+User Profile Management: Register, login, and update your profile with image and display name.
+
+Responsive Design: Works seamlessly on desktop, tablet, and mobile devices.
+
+Technology Stack
+
+Frontend: React, Tailwind CSS, DaisyUI
+
+Animations: React Spring, Animate.css, React Fast Marquee
+
+Authentication: Firebase Authentication
+
+Hosting: Netlify
+
+Purpose
+
+This project aims to provide pet owners with an intuitive platform to access professional pet care services and tips while showcasing modern web development practices, animations, and responsive design.
