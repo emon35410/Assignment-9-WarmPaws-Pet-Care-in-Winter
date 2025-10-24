@@ -1,11 +1,12 @@
 
 import React, { useState } from "react";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
 const ServiceDetails = () => {
     const service = useLoaderData();
+    const navigate = useNavigate()
 
 
     const [form, setForm] = useState({ name: "", email: "" });
@@ -76,8 +77,19 @@ const ServiceDetails = () => {
                             {success && <p className="text-green-500 mt-2">Service booked successfully!</p>}
                         </div>
                     </div>
+
                 </div>
+                <div className="container flex justify-center items-center mx-auto my-5">
+                    <button
+                        onClick={() => navigate(-1)}
+                        className="btn bg-gradient-to-r from-[#632ee3] to-[#9f62f2] text-white px-7 py-2 rounded-md"
+                    >
+                        Go Back
+                    </button>
+                </div>
+
             </main>
+
             <section>
                 <Footer></Footer>
             </section>

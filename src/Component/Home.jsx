@@ -1,10 +1,12 @@
 import React, { Suspense } from 'react';
-import { Link } from 'react-router';
+import { Link, useLocation } from 'react-router';
 import { useLoaderData } from 'react-router';
 import CircularText from './CircularText ';
 import Marquee from 'react-fast-marquee';
 
 const Home = () => {
+    const location = useLocation();
+    console.log(location)
     const services = useLoaderData();
     const winterTip = [
         { id: 1, tip: "Keep your pets indoors during heavy snow." },

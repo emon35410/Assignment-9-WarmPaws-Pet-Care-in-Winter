@@ -1,9 +1,11 @@
-import React, { use } from 'react';
-import { Link } from 'react-router';
+import React, { use, useState } from 'react';
+import { Link, useNavigate } from 'react-router';
 import { AuthConntext } from '../layout/Provider/AuthProvider';
 
 const Login = () => {
     const { login } = use(AuthConntext)
+    const navigate = useNavigate()
+    const [error , setError] = useState("")
     const handleSubmit = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
@@ -12,11 +14,12 @@ const Login = () => {
             .then((result) => {
                 const user = result.user;
                 console.log(user)
+                navigate(`${location.state? location.state :"/"}`)
             
             })
             .catch((error) => {
                 const errorMessage = error.message;
-                alert(errorMessage)
+                setError(errorMessage)
             });
 
     }
@@ -35,7 +38,7 @@ const Login = () => {
                             <input required name='password' type="password" className="input" placeholder="Password" />
                             <div><a className="link link-hover">Forgot password?</a></div>
                             {
-                                <p className='text-red-600'>{ }</p>
+                              error &&  <p className='text-red-600'>{error }</p>
                             }
                             <button type='submit' className="btn btn-neutral mt-4">Login</button>
                             <p className='text-[#706F6F] text-center mt-2 font-semibold'>Dont’t Have An Account ?<Link to="/auth/register" className='text-[#F75B5F]'>Register</Link></p>

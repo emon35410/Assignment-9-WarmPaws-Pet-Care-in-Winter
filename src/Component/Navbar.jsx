@@ -60,7 +60,7 @@ const Navbar = () => {
                 <div className="navbar-end">
                     <img className='mr-2' src={userImg} alt="" />
                     {
-                        user ? <Link onClick={handleLogout} className="btn">Logout</Link> : <Link to="/auth/login" className="btn">Login</Link>
+                        user ? <Link to="/auth/login" onClick={handleLogout} className="btn">Logout</Link> : <Link to="/auth/login" className="btn">Login</Link>
                     }
 
                 </div>

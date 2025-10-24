@@ -1,13 +1,21 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import { Link } from 'react-router';
 import { AuthConntext } from '../layout/Provider/AuthProvider';
 
 const Register = () => {
+    const [nameEror, setNameError] = useState("")
     const { createUser, SetUser } = use(AuthConntext)
     const handleRegister = (e) => {
         e.preventDefault();
         console.log(e.target)
         const name = e.target.name.value;
+        if (name.length < 5) {
+            setNameError("Name Should be more then 5 charecter")
+            return;
+        }
+        else {
+            setNameError("")
+        }
         const email = e.target.email.value;
         const password = e.target.password.value;
         const photo = e.target.photo.value;
@@ -15,7 +23,7 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 const user = result.user;
-                
+
                 SetUser(user)
                 console.log(user)
             })
@@ -35,6 +43,9 @@ const Register = () => {
                         {/* Name */}
                         <label className=" font-semibold">Your Name</label>
                         <input name='name' required type="text" className="input" placeholder="Enter Your Name" />
+                        {
+                            nameEror && <p className='text-red-600'>{nameEror}</p>
+                        }
                         {/* Photo URL */}
                         <label className=" font-semibold">Photo URL</label>
                         <input name='photo' required type="text" className="input" placeholder="Enter Your Photo URL" />
@@ -44,6 +55,7 @@ const Register = () => {
                         {/* Password */}
                         <label className="font-semibold">Password</label>
                         <input name='password' required type="password" className="input" placeholder="Password" />
+
                         <button type='submit' className="btn btn-neutral mt-4">Register</button>
                         <p className='text-[#706F6F] text-center mt-2 font-semibold'>Already Have an Account ?<Link to="/auth/login" className='text-[#F75B5F]'>Login</Link></p>
                     </fieldset>
