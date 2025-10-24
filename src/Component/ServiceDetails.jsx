@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useLoaderData, useNavigate } from "react-router";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import { toast } from "react-toastify";
 
 const ServiceDetails = () => {
     const service = useLoaderData();
@@ -19,6 +20,7 @@ const ServiceDetails = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setForm({ name: "", email: "" });
+        toast.success("Service booked successfully!")
         setSuccess(true);
         setTimeout(() => setSuccess(false), 3000);
     };

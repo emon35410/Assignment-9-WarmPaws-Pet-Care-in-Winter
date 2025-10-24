@@ -1,13 +1,16 @@
 import React, { use, useState } from 'react';
 import { Link } from 'react-router';
 import { AuthConntext } from '../layout/Provider/AuthProvider';
-import { FaEye, FaEyeSlash } from 'react-icons/fa'; 
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { sendEmailVerification } from 'firebase/auth';
+import { auth } from '../Firebase/firebase.init';
+import { toast } from 'react-toastify';
 
 const Register = () => {
     const [nameError, setNameError] = useState("");
     const [passwordError, setPasswordError] = useState("");
-    const [showPassword, setShowPassword] = useState(false); 
-    const { createUser, SetUser, updateUser } = use(AuthConntext);
+    const [showPassword, setShowPassword] = useState(false);
+    const { createUser, setUser, updateUser } = use(AuthConntext);
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -17,7 +20,7 @@ const Register = () => {
         const password = e.target.password.value;
         const photo = e.target.photo.value;
 
-        
+
         if (name.length < 5) {
             setNameError("Name should be more than 5 characters");
             return;
@@ -25,7 +28,7 @@ const Register = () => {
             setNameError("");
         }
 
-        
+
         const uppercaseRegex = /[A-Z]/;
         const lowercaseRegex = /[a-z]/;
         if (!uppercaseRegex.test(password)) {
@@ -46,18 +49,32 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 const user = result.user;
+
                 updateUser({ displayName: name, photoURL: photo })
                     .then(() => {
-                        SetUser({ ...user, displayName: name, photoURL: photo });
+                        
+                        setUser({ ...user, displayName: name, photoURL: photo });
+                        sendEmailVerification(auth.currentUser)
+                            .then(() => {
+                                console.log(user)
+                                 if(!result.emailVerified){
+                    toast("Your Email is not Verified")
+                    return;
+                }
+                                toast.success("Signup Successful! Check your email to verify.");
+                            })
+                            .catch(err => {
+                                toast.error(err.message);
+                            });
                     })
                     .catch((error) => {
                         console.log(error);
-                        SetUser(user);
+                        setUser(user);
                     });
                 console.log(user);
             })
             .catch((error) => {
-                alert(error.message);
+                toast(error.message);
             });
     }
 

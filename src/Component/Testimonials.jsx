@@ -27,7 +27,7 @@ const Testimonials = () => {
                     <div key={index} className="bg-white p-6 rounded-2xl shadow text-center">
                         <img src={t.img} alt={t.name} className="w-20 h-20 rounded-full mx-auto mb-4" />
                         <p className="text-gray-700 mb-2">"{t.feedback}"</p>
-                        <h3 className="font-semibold">{t.name}</h3>
+                        <h3 className="font-semibold text-blue-500">{t.name}</h3>
                     </div>
                 ))}
             </div>

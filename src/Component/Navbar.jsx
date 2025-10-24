@@ -38,9 +38,9 @@ const Navbar = () => {
 
                         </ul>
                     </div>
-                    <div className='w-24 '>
+                    <div className='w-20 ml-2 '>
                         <Link to="/">
-                            <img className="rounded-full " src={logo} alt="WarmPaws Logo" />
+                            <img className="rounded-3xl " src={logo} alt="WarmPaws Logo" />
                         </Link>
                     </div>
 
@@ -53,7 +53,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <img className='mr-2 w-15 h-10 rounded-full' src={`${user?user.photoURL:userImg}`} alt="" />
+                    <img className='mr-2 w-15 h-15 rounded-full ' src={`${user?user.photoURL:userImg}`} alt="" />
                     {
                         user ? <Link to="/auth/login" onClick={handleLogout} className="btn">Logout</Link> : <Link to="/auth/login" className="btn">Login</Link>
                     }

@@ -3,18 +3,19 @@ import { Link, useNavigate, useLocation } from 'react-router';
 import { AuthConntext } from '../layout/Provider/AuthProvider';
 import { FcGoogle } from 'react-icons/fc';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { GoogleAuthProvider, sendPasswordResetEmail, signInWithPopup } from 'firebase/auth';
 import { auth } from '../Firebase/firebase.init';
 import { toast } from 'react-toastify';
 
 
 const googleProvider = new GoogleAuthProvider()
 const Login = () => {
-    const { login, SetUser } = useContext(AuthConntext);
+    const { login, setUser } = useContext(AuthConntext);
     const navigate = useNavigate();
     const location = useLocation();
     const [error, setError] = useState("");
     const [showPassword, setShowPassword] = useState(false);
+    const [email,setEmail] = useState(null)
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -37,7 +38,7 @@ const Login = () => {
             .then((result) => {
                 const user = result.user;
                 console.log("Google user:", user);
-                SetUser(user);
+                setUser(user);
                 toast.success("Sign in successfully!");
                 navigate( "/");
             })
@@ -46,6 +47,12 @@ const Login = () => {
                 setError(error.message);
             });
     };
+    const handleResetPassword = (e)=>{
+        e.preventDefault();
+        
+        console.log(email)
+        sendPasswordResetEmail(auth,email)
+    }
 
 
     return (
@@ -65,6 +72,7 @@ const Login = () => {
                                 required
                                 name='email'
                                 type="email"
+                                onChange={(e)=>setEmail(e.target.value)}
                                 className="input w-full"
                                 placeholder="Enter Your Email Address"
                             />
@@ -88,7 +96,7 @@ const Login = () => {
                             </div>
 
                             <div>
-                                <a className="link link-hover text-sm">Forgot password?</a>
+                                <Link type='button' onClick={handleResetPassword} className="link link-hover text-sm">Forgot password?</Link>
                             </div>
 
 
