@@ -5,6 +5,7 @@ import CircularText from './CircularText ';
 import Marquee from 'react-fast-marquee';
 import Testimonials from './Testimonials';
 
+
 const Home = () => {
     const location = useLocation();
     console.log(location)
@@ -39,10 +40,15 @@ const Home = () => {
                 </div>
             }>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {services.map((service) => (
-                        <div key={service.serviceId} className="card bg-base-100 shadow-lg">
+                    {services.map((service, index) => (
+                        <div
+                            key={service.serviceId}
+                            className={`card bg-base-100 shadow-lg animate__animated animate__fadeInUp`}
+                            style={{ animationDelay: `${index * 0.6}s` }} 
+                        >
                             <figure>
-                                <img className='w-full object-cover md:h-90'
+                                <img
+                                    className='w-full object-cover md:h-90'
                                     src={service.image}
                                     alt={service.serviceName}
                                 />
@@ -58,6 +64,7 @@ const Home = () => {
                         </div>
                     ))}
                 </div>
+
             </Suspense>
 
             <div className='flex justify-center items-center my-10'>

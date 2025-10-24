@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import { Link, useLoaderData, useNavigation } from 'react-router';
 import Navbar from './Navbar';
 import CircularText from './CircularText ';
+import 'animate.css';
 
 const Service = () => {
     const services = useLoaderData();
@@ -25,11 +26,13 @@ const Service = () => {
             <div>
 
 
-                <div className="container mx-auto mt-10">
+                <div className="container mx-auto mt-10 ">
                     <h2 className="text-2xl font-bold my-10 text-center">Popular Winter Care Services</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {services.map((service) => (
-                            <div key={service.serviceId} className="card bg-base-100 shadow-lg">
+                        {services.map((service,index) => (
+                            <div key={service.serviceId} className="animate__animated animate__fadeInUp card bg-base-100 shadow-lg"
+                                style={{ animationDelay: `${index * 0.4}s` }}>
+
                                 <figure>
                                     <img className='w-full object-cover md:h-80'
                                         src={service.image}
