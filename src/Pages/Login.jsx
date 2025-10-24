@@ -2,12 +2,17 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const Login = () => {
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+
+        console.log("my jafrin")
+    }
     return (
         <div className='flex justify-center items-center md:min-h-screen'>
             <div className="card  bg-base-100 w-full max-w-sm shrink-0 shadow-2xl py-5">
                 <div className="card-body ">
                     <h1 className='text-2xl font-semibold my-2 text-center'>Login Your Account</h1>
-                    <form onSubmit="">
+                    <form onSubmit={handleSubmit}>
                         <fieldset className="fieldset">
                             {/* Email */}
                             <label className=" font-semibold">Email Address</label>

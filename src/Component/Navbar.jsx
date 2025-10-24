@@ -1,10 +1,23 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
 import logo from "../assets/Logo shop.png"
 import "./button.css"
+import { AuthConntext } from '../layout/Provider/AuthProvider';
+import { h2 } from 'framer-motion/client';
+import userImg from "../assets/user.png"
+import { toast } from 'react-toastify';
 
 
 const Navbar = () => {
+    const { user, logout } = use(AuthConntext)
+    const handleLogout = () => {
+        logout()
+            .then(() => {
+                toast.success("Logout Succesfully")
+            }).catch((error) => {
+                console.log(error)
+            });
+    }
     const links = <>
         <li><NavLink className="font-semibold" to="/">Home</NavLink></li>
         <li><NavLink className="font-semibold" to="/services">Services</NavLink></li>
@@ -12,6 +25,11 @@ const Navbar = () => {
     </>
     return (
         <nav className=''>
+            <div>
+                {
+                    user && user.email
+                }
+            </div>
             <div className="navbar bg-base-100 shadow-sm">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -40,7 +58,11 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to="/auth/login" className="btn">Login</Link>
+                    <img className='mr-2' src={userImg} alt="" />
+                    {
+                        user ? <Link onClick={handleLogout} className="btn">Logout</Link> : <Link to="/auth/login" className="btn">Login</Link>
+                    }
+
                 </div>
             </div>
         </nav>

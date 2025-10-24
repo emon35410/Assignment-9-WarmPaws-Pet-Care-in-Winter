@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import { Link } from 'react-router';
 import { useLoaderData } from 'react-router';
 import CircularText from './CircularText ';
+import Marquee from 'react-fast-marquee';
 
 const Home = () => {
     const services = useLoaderData();
@@ -77,23 +78,26 @@ const Home = () => {
             {/* Expert Vets Section */}
             <section className="mb-16">
                 <h2 className="text-2xl font-bold mb-5 text-center">Meet Our Expert Vets</h2>
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-6 hover:cursor-pointer">
-                    {vetDoctor.map((vet) => (
-                        <div key={vet.id} className="card bg-base-100 shadow-lg">
-                            <figure>
-                                <img
-                                    src={vet.image}
-                                    alt={vet.name}
-                                    className="w-full h-100 object-cover rounded-lg"
-                                />
-                            </figure>
-                            <div className="card-body text-center">
-                                <h3 className="text-lg font-semibold">{vet.name}</h3>
-                                <p>{vet.specialty}</p>
+                <Marquee>
+                    <div className="grid grid-cols-4 my-4  hover:cursor-pointer">
+                        {vetDoctor.map((vet) => (
+                            <div key={vet.id} className="card bg-base-100 space-x-6 shadow-lg">
+                                <figure>
+                                    <img
+                                        src={vet.image}
+                                        alt={vet.name}
+                                        className="w-full h-100 object-cover rounded-s-sm"
+                                    />
+                                </figure>
+                                <div className="card-body text-center">
+                                    <h3 className="text-lg font-semibold">{vet.name}</h3>
+                                    <p>{vet.specialty}</p>
+                                </div>
                             </div>
-                        </div>
-                    ))}
-                </div>
+                        ))}
+                    </div>
+                </Marquee>
+
             </section>
 
 
